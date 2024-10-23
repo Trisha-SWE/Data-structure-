@@ -6,7 +6,7 @@ int main()
     while (scanf("%lld", &nice) != EOF)
     {
         scanf("%lld", &attractive);
-        if (x > y)
+        if (nice > attractive) // Corrected the variable names here
             printf("%lld\n", nice - attractive);
         else
             printf("%lld\n", attractive - nice);

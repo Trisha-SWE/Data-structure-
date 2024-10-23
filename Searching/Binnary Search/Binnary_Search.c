@@ -1,5 +1,6 @@
 #include <stdio.h>
-/*Reduan Ahmad
+/*Rukaiya Akter Trisha
+Id:232-35-292
 19/09/2024*/
 int binnary_search(int arr[], int size, int target)
 {

@@ -2,63 +2,38 @@
 #include <stdlib.h>
 
 struct Node {
-    char data;
+    int data;
     struct Node* next;
-    struct Node* prev;
 };
+
+void display(struct Node* head) {
+    struct Node* temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+}
 
 int main() {
     struct Node* head = NULL;
-    struct Node* temp = NULL;
-    struct Node* newNode = NULL;
-    char ch;
-    int choice = 1;
+    struct Node* second = NULL;
+    struct Node* third = NULL;
 
-    while (choice) {
-        newNode = (struct Node*)malloc(sizeof(struct Node));
-        printf("Enter a character: ");
-        scanf(" %c", &newNode->data);
-        newNode->next = NULL;
-        newNode->prev = NULL;
+    head = (struct Node*)malloc(sizeof(struct Node));
+    second = (struct Node*)malloc(sizeof(struct Node));
+    third = (struct Node*)malloc(sizeof(struct Node));
 
-        if (head != NULL) {
-            temp->next = newNode;
-            newNode->prev = temp;
-            temp = newNode;
-        } else {
-            head = temp = newNode;
-        }
+    head->data = 1;
+    head->next = second;
+    
+    second->data = 2;
+    second->next = third;
 
-        printf("Do you want to add another element? (0 to stop, 1 to continue): ");
-        scanf("%d", &choice);
-    }
+    third->data = 3;
+    third->next = NULL;
 
-    printf("Before deletion:\nList elements: ");
-    temp = head;
-    while (temp != NULL) {
-        printf("%c ", temp->data);
-        temp = temp->next;
-    }
-    printf("\n");
-
-    if (head != NULL) {
-        temp = head;
-        head = head->next;
-
-        if (head != NULL) {
-            head->prev = NULL;
-        }
-
-        free(temp);
-    }
-
-    printf("After deletion:\nList elements: ");
-    temp = head;
-    while (temp != NULL) {
-        printf("%c ", temp->data);
-        temp = temp->next;
-    }
-    printf("\n");
-
+    display(head);
+    
     return 0;
 }

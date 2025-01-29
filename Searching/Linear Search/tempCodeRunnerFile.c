@@ -1,18 +1,13 @@
 #include <stdio.h>
 
-void countOccurrences(int arr[], int n, int target) {
-    int count = 0;
+void linearSearch(int arr[], int n, int target) {
     for (int i = 0; i < n; i++) {
         if (arr[i] == target) {
-            count++;
+            printf("Element %d found at index %d\n", target, i);
+            return;
         }
     }
-    
-    if (count > 0) {
-        printf("Element %d occurred %d times\n", target, count);
-    } else {
-        printf("Element %d not found\n", target);
-    }
+    printf("Element %d not found\n", target);
 }
 
 int main() {
@@ -30,7 +25,7 @@ int main() {
     printf("Enter the target element: ");
     scanf("%d", &target);
     
-    countOccurrences(arr, n, target);
+    linearSearch(arr, n, target);
     
     return 0;
 }
